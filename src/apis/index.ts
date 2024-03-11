@@ -1,3 +1,1 @@
-import ResponseDto from "./response/Response.dto";
-
-export type {ResponseDto};
+export const tmp = "";
