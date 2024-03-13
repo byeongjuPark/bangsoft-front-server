@@ -1,3 +1,69 @@
+.black-button{
+    border-radius: 46px;
+    width: 95px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0,0,0,1);
+    color: rgba(255,255,255,1);
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+
+    cursor: pointer;
+}
+
+.black-button:hover{
+    background-color: rgba(0,0,0, 0.8);
+}
+
+.disable-button{
+    border-radius: 46px;
+    width: 95px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0,0,0,0.4);
+    color: rgba(255,255,255,1);
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+
+    cursor:not-allowed;
+}
+
+.white-button{
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 46px;
+    width: 95px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255,255,255,1);
+    color: rgba(0,0,0,0.5);
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+
+    cursor: pointer;
+}
+
+.white-button:hover{
+    background-color: rgba(0,0,0, 0.05);
+}
+
 .icon-box{
     width: 24px;
     height: 24px;
@@ -57,4 +123,11 @@
 .velog-icon{
     background-image: url(assets/image/velog_logo_icon_249278.svg);
     filter: invert(100%);
+}
+.logo-dark-icon{
+    background-image: url(assets/image/logo-dark.png);
+}
+
+.search-light-icon{
+    background-image: url(assets/image/search-light.png);
 }
