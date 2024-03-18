@@ -1,5 +1,3 @@
-import Footer from 'layouts/Footer';
-import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Main from 'views/Main';
 import Authentication from 'views/Authentication';
@@ -10,11 +8,10 @@ import BoardWrite from 'views/Board/Write';
 import BoardUpdate from 'views/Board/Update';
 import Container from 'layouts/Container';
 import { AUTH_PATH, BOARD_DETAIL_PATH, BOARD_PATH, BOARD_UPDATE_PATH, BOARD_WRITE_PATH, MAIN_PATH, SEARCH_PATH, USER_PATH } from './constant';
+import './App.css';
 
 // component
-function App() {
-
-
+export function App() {
   // rendering
   // description : 메인 화면 : '/' - Main
   // description : 로그인 + 회원가입 화면 : '/auth' - Authentication
@@ -23,6 +20,7 @@ function App() {
   // description : 게시물 상세보기 화면 : '/board/:boardNumber' - BoardDetail
   // description : 게시물 작성하기 화면 : '/board/write' - BoardWrite
   // description : 게시물 수정하기 화면 : '/board/update/:boardNumber' - BoardUpdate
+
 
   return (
     <Routes>
@@ -38,10 +36,8 @@ function App() {
           <Route path={BOARD_UPDATE_PATH(':boardNumber')} element={<BoardUpdate />} />
           <Route path={BOARD_WRITE_PATH()} element={<BoardWrite />} />
         </Route>
-        <Route path='*' element ={<h1>404 Not Found</h1>}></Route>
+        <Route path='*' element={<h1>404 Not Found</h1>}></Route>
       </Route>
     </Routes>
   );
 }
-
-export default App;
