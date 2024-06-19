@@ -99,8 +99,8 @@ export default function Header() {
   // component : 마이페이지 버튼 컴포넌트
   const MyPageButton = () => {
 
-    // state : UserEmail path variable 상태
-    const { UserEmail } = useParams();
+    // state : userEmail path variable 상태
+    const { userEmail } = useParams();
 
     // event handler : 마이페이지 버튼 클릭 이벤트 처리 함수
     const onMypageButtonClickHnadler = () => {
@@ -112,6 +112,7 @@ export default function Header() {
     // event handler : 로그아웃 버튼 클릭 이벤트 처리 함수
     const onSignOutButtonClickHandler = () => {
       resetLoginUser();
+      setCookie('accessToken', '', { path: MAIN_PATH(), expires: new Date() });
       navigate(AUTH_PATH());
     }
 
@@ -119,12 +120,11 @@ export default function Header() {
     const onSignInButtonClickHandler = () => {
       navigate(AUTH_PATH());
     }
-
-    if (isLogin && UserEmail === loginUser?.email)
-      // render : 마이페이지 버튼 컴포넌트 렌더링
+    // render : 마이페이지 버튼 컴포넌트 렌더링
+    if (isLogin && userEmail === loginUser?.email) 
       return (<div className='white-button' onClick={onMypageButtonClickHnadler}>{'마이페이지'}</div>);
     // render : 로그아웃 버튼 컴포넌트 렌더링
-    if (isLogin)
+    if (isLogin) 
       return (<div className='white-button' onClick={onSignOutButtonClickHandler}>{'로그아웃'}</div>);
     // render : 로그인 버튼 컴포넌트 렌더링
     return (<div className='black-button' onClick={onSignInButtonClickHandler}>{'로그인'}</div>);
@@ -165,6 +165,11 @@ export default function Header() {
     const isUserPage = pathname.startsWith(USER_PATH(''));
     setUserPage(isUserPage);
   }, [pathname]);
+
+  // effect : loginUser 변경될 때 마다 실행
+  useEffect(() => {{
+    setLogin(loginUser !== null);
+  }}, [loginUser])
 
   // render
   return (
